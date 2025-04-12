@@ -26,6 +26,8 @@ Our processed data can be downloaded here:
 
 [Insert link to processed data]
 
+NOTE: do not include your data in your git repo - it will likely be too large and cause issues.
+
 ## Python scripts / notebooks
 
 The following scripts/notebooks were used produce the summary:
