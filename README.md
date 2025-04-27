@@ -21,11 +21,11 @@ https://moran-teaching.github.io/project-repo/????????????
 
 Our raw data can be downloaded here:
 
-[Insert link to raw data]
+https://rutgers.box.com/s/2d8b2lxy0z238jw5ar5fafu6kysh9o9q
 
 Our processed data can be downloaded here:
 
-[Insert link to processed data]
+https://rutgers.box.com/s/yb6srg0fuck95u3ktjayzskzdecpqra5
 
 NOTE: do not include your data in your git repo - it will likely be too large and cause issues.
 
