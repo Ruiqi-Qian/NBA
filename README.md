@@ -52,11 +52,19 @@ Your summary should include the following.
 
 Note: You do not need code in your summary - instead, reference where in your github repo the code is. The priority should be a concise, readable summary. You should include visualizations and conclusions regarding your data analysis.
 
-1. describe where the data cam from, the format of the data, the nature of the data (e.g., what it contains, how often it is updated, etc).
+1. describe where the data cam from, the format of the data, the nature of the data (e.g., what it contains, how often it is updated, etc). We get the 2 datasets from Kaggle and Github website.The first dataset examines NBA player performance across multiple seasons to determine key factors influencing salary. It includes attributes like points, assists, rebounds, net
+rating, draft details, and accolades (https://www.kaggle.com/datasets/justinas/nba-players-data). The second datasetpresents the Salary of NBA players during the 2019-2024 season(https://github.com/madhurn1/PredictiveNBAContractValuationModel/blob/main/NBA%20Advanced%20Stats(2019%20-%202024).csv)
 
-2. explain how you retrieved the data e.g. API, webscraping
+2. explain how you retrieved the data e.g. API, webscraping    We just download the data on the website
 
-3. explain how you transformed raw data into tidy tabular data, including data cleaning
+3. explain how you transformed raw data into tidy tabular data, including data cleaning Weloaded NBA player stats and salary data from 2019–2024.
+We cleaned the data by:
+Dropping missing values (e.g., in PER, TS%, salary, and position).
+Standardizing column names (e.g., changing Player to player_name).
+Selecting important columns like Season, Player, PER, TS%, Salary, and Position.
+Splitting the data by season for easier processing.
+Merging player stats with their position data, ensuring no missing positions.
+At each stage, we saved cleaned datasets to CSV files, preparing tidy, analysis-ready data organized by season.
 
 4. explain any tests you did to check data (e.g. using `pytest` to verify that no missing values are present in the tidied dataframes, verify that the resulting number of rows is reasonable)
 
