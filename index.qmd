@@ -1,0 +1,14 @@
+---
+title: "data Wrangling project group 5"
+format: html
+---
+
+## NBA Salary Analysis
+# Present by: Group 5
+
+member: Ruiqi Qian, Zhishen Lin, Jiacheng Xu, Zhechongyue, Xu
+
+
+This subtitle utilizes two datasets, which contain information on NBA players’ salaries from 2019 to 2023, as well as their positions, average points per game, average rebounds, and average assists. The aim of this section is to analyze these two datasets and link players’ salaries with their on-court performance, in order to study the relationship between players’ statistical performance and their salaries.
+
+![NBA](image/MAN.webp){width=80%}
