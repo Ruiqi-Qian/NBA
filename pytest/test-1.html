@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>data_cleaning – MSDS 597 PROJECT: NBA Data Analysis</title>
+<title>test-1 – MSDS 597 PROJECT: NBA Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../data_cleaning/data_cleaning.html" aria-current="page"> 
+    <a class="nav-link" href="../data_cleaning/data_cleaning.html"> 
 <span class="menu-text">data cleaning</span></a>
   </li>  
   <li class="nav-item">
@@ -155,30 +155,173 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="55b07d23" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../data/NBA Advanced Stats(2019 - 2024).csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loaded NBA Advanced Stats with </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> rows."</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First 5 rows of the NBA Advanced Stats dataset:"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Dataset Info"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Summary Statictics"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Missing values in each column:"</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Column names:"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="008e672d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pytest data_cleaning.py <span class="op">-</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-7.4.4, pluggy-1.0.0
+rootdir: c:\adv
+plugins: anyio-4.2.0
+Loaded NBA Advanced Stats with 4296 rows.
+First 5 rows of the NBA Advanced Stats dataset:
+   Unnamed: 0  Season         Player   Age  ... DBPM   BPM  VORP         Awards
+0           0    2019   Bradley Beal  25.0  ... -0.8   2.9   3.7             AS
+1           1    2019   James Harden  29.0  ...  1.6  11.0   9.3  MVP-2,AS,NBA1
+2           2    2019   Kemba Walker  28.0  ... -1.0   4.2   4.4        AS,NBA3
+3           3    2019  Tobias Harris  26.0  ... -0.5   1.6   2.6            NaN
+4           4    2019  Tobias Harris  26.0  ... -0.2   2.4   2.1            NaN
+
+[5 rows x 30 columns]
+
+Dataset Info
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 4296 entries, 0 to 4295
+Data columns (total 30 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Unnamed: 0  4296 non-null   int64  
+ 1   Season      4296 non-null   int64  
+ 2   Player      4296 non-null   object 
+ 3   Age         4290 non-null   float64
+ 4   Team        4290 non-null   object 
+ 5   Pos         4290 non-null   object 
+ 6   G           4290 non-null   float64
+ 7   GS          4290 non-null   float64
+ 8   MP          4290 non-null   float64
+ 9   PER         4290 non-null   float64
+ 10  TS%         4262 non-null   float64
+ 11  3PAr        4260 non-null   float64
+ 12  FTr         4260 non-null   float64
+ 13  ORB%        4296 non-null   float64
+ 14  DRB%        4296 non-null   float64
+ 15  TRB%        4296 non-null   float64
+ 16  AST%        4296 non-null   float64
+ 17  STL%        4296 non-null   float64
+ 18  BLK%        4296 non-null   float64
+ 19  TOV%        4266 non-null   float64
+ 20  USG%        4296 non-null   float64
+ 21  OWS         4290 non-null   float64
+ 22  DWS         4290 non-null   float64
+ 23  WS          4290 non-null   float64
+ 24  WS/48       4290 non-null   float64
+ 25  OBPM        4290 non-null   float64
+ 26  DBPM        4290 non-null   float64
+ 27  BPM         4290 non-null   float64
+ 28  VORP        4290 non-null   float64
+ 29  Awards      319 non-null    object 
+dtypes: float64(24), int64(2), object(4)
+memory usage: 1007.0+ KB
+None
+
+Summary Statictics
+        Unnamed: 0       Season  ...          BPM         VORP
+count  4296.000000  4296.000000  ...  4290.000000  4290.000000
+mean   2147.500000  2021.537942  ...    -1.917902     0.423357
+std    1240.292707     1.699265  ...     5.220443     1.075243
+min       0.000000  2019.000000  ...   -81.400000    -2.000000
+25%    1073.750000  2020.000000  ...    -3.700000    -0.100000
+50%    2147.500000  2022.000000  ...    -1.500000     0.000000
+75%    3221.250000  2023.000000  ...     0.500000     0.600000
+max    4295.000000  2024.000000  ...    52.000000    10.600000
+
+[8 rows x 26 columns]
+
+Missing values in each column:
+Unnamed: 0       0
+Season           0
+Player           0
+Age              6
+Team             6
+Pos              6
+G                6
+GS               6
+MP               6
+PER              6
+TS%             34
+3PAr            36
+FTr             36
+ORB%             0
+DRB%             0
+TRB%             0
+AST%             0
+STL%             0
+BLK%             0
+TOV%            30
+USG%             0
+OWS              6
+DWS              6
+WS               6
+WS/48            6
+OBPM             6
+DBPM             6
+BPM              6
+VORP             6
+Awards        3977
+dtype: int64
+
+Column names:
+Index(['Unnamed: 0', 'Season', 'Player', 'Age', 'Team', 'Pos', 'G', 'GS', 'MP',
+       'PER', 'TS%', '3PAr', 'FTr', 'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%',
+       'BLK%', 'TOV%', 'USG%', 'OWS', 'DWS', 'WS', 'WS/48', 'OBPM', 'DBPM',
+       'BPM', 'VORP', 'Awards'],
+      dtype='object')
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting data_cleaning.py ______________________
+data_cleaning.py:26: in &lt;module&gt;
+    df_per_ts.to_csv(save_path_PER,index=False)
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\util\_decorators.py:333: in wrapper
+    return func(*args, **kwargs)
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\core\generic.py:3967: in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\io\formats\format.py:1014: in to_csv
+    csv_formatter.save()
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\io\formats\csvs.py:251: in save
+    with get_handle(
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\io\common.py:749: in get_handle
+    check_parent_directory(str(handle))
+C:\Users\27508\anaconda3\Lib\site-packages\pandas\io\common.py:616: in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+E   OSError: Cannot save file into a non-existent directory: 'E:\Advanced program'
+=========================== short test summary info ===========================
+ERROR data_cleaning.py - OSError: Cannot save file into a non-existent directory: 'E:\Advanced program'
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 1.56s ===============================</code></pre>
+</div>
+</div>
+<div id="f9f6f26f" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> types</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 运行一遍你的 data_cleaning.py，把里面的变量读到 namespace</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>namespace <span class="op">=</span> types.SimpleNamespace()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'C:/adv/data_cleaning.py'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    code <span class="op">=</span> f.read()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span>(code, namespace.__dict__)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_no_missing_values_in_key_dataframes():</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test that key DataFrames from data_cleaning.py have no missing values."""</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    important_dfs <span class="op">=</span> [</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_per_ts'</span>, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_salary'</span>, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_selectd'</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_pos'</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_pos_2019'</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_pos_2020'</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_pos_2021'</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_pos_2022'</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_merged_data_2019'</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_merged_data_2020'</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_merged_data_2021'</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df_merged_data_2022'</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> df_name <span class="kw">in</span> important_dfs:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> <span class="bu">getattr</span>(namespace, df_name)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        missing <span class="op">=</span> df.isnull().<span class="bu">sum</span>().<span class="bu">sum</span>()</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: missing values = </span><span class="sc">{</span>missing<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> missing <span class="op">==</span> <span class="dv">0</span>, <span class="ss">f"❌ </span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss"> contains missing values!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loaded NBA Advanced Stats with 4296 rows.
 First 5 rows of the NBA Advanced Stats dataset:
@@ -321,112 +464,105 @@ Index(['Unnamed: 0', 'Season', 'Player', 'Age', 'Team', 'Pos', 'G', 'GS', 'MP',
        'BPM', 'VORP', 'Awards'],
       dtype='object')</code></pre>
 </div>
-</div>
-<div id="6db66128" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_per_ts <span class="op">=</span> df[[<span class="st">'Season'</span>,<span class="st">'Player'</span>,<span class="st">'PER'</span>,<span class="st">'TS%'</span>]].dropna()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>save_path_PER <span class="op">=</span> <span class="st">"../data/PER-TS%.csv"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_per_ts.to_csv(save_path_PER,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_per_ts)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df_salary <span class="op">=</span> pd.read_csv(<span class="st">"../data/NBA Salaries(2019-2024).csv"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_salary.head())</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      Season              Player   PER    TS%
-0       2019        Bradley Beal  20.8  0.581
-1       2019        James Harden  30.6  0.616
-2       2019        Kemba Walker  21.7  0.558
-3       2019       Tobias Harris  17.2  0.592
-4       2019       Tobias Harris  18.2  0.605
-...      ...                 ...   ...    ...
-4286    2024     Markquis Nowell  55.5  0.532
-4287    2024         Isaiah Wong  -1.1  0.333
-4289    2024  Izaiah Brockington  26.6  0.400
-4291    2024      Jalen Crutcher -12.6  0.000
-4292    2024   Dmytro Skapintsev -19.3  0.000
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">OSError</span>                                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[6], line 8</span>
+<span class="ansi-green-fg">      6</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span style="color:rgb(0,135,0)">open</span>(<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">C:/adv/data_cleaning.py</span><span style="color:rgb(175,0,0)">'</span>, encoding<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">utf-8</span><span style="color:rgb(175,0,0)">'</span>) <span style="font-weight:bold;color:rgb(0,135,0)">as</span> f:
+<span class="ansi-green-fg">      7</span>     code <span style="color:rgb(98,98,98)">=</span> f<span style="color:rgb(98,98,98)">.</span>read()
+<span class="ansi-green-fg ansi-bold">----&gt; 8</span> exec(code, namespace<span style="color:rgb(98,98,98)">.</span><span style="color:rgb(0,0,135)">__dict__</span>)
+<span class="ansi-green-fg">     10</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">test_no_missing_values</span>():
+<span class="ansi-green-fg">     11</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""Test that key DataFrames in data_cleaning.py have no missing values."""</span>
 
-[4256 rows x 4 columns]
-   Unnamed: 0         playerName      2019/20   2019/20(*)      2020/21  \
-0           0      Stephen Curry  $40,231,758  $49,346,703  $43,006,362   
-1           1  Russell Westbrook  $38,506,482  $47,230,546  $41,358,814   
-2           2         Chris Paul  $38,506,482  $47,230,546  $41,358,814   
-3           3       James Harden  $38,199,000  $46,853,401  $41,254,920   
-4           4          John Wall  $38,199,000  $46,853,401  $41,254,920   
+File <span class="ansi-green-fg ansi-bold">&lt;string&gt;:26</span>
 
-    2020/21(*)      2021/22   2021/22(*)      2022/23   2022/23(*)  \
-0  $52,411,485  $45,780,966  $52,938,707  $48,070,014  $50,968,059   
-1  $50,403,633  $44,211,146  $51,123,449  $47,080,179  $49,918,548   
-2  $50,403,633  $30,800,000  $35,615,504  $28,400,000  $30,112,179   
-3  $50,277,018  $44,310,840  $51,238,730  $33,000,000  $34,989,504   
-4  $50,277,018  $44,310,840  $51,238,730  $47,345,760  $50,200,141   
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\util\_decorators.py:333</span>, in <span class="ansi-cyan-fg">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg ansi-bold">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    327</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(args) <span style="color:rgb(98,98,98)">&gt;</span> num_allow_args:
+<span class="ansi-green-fg">    328</span>     warnings<span style="color:rgb(98,98,98)">.</span>warn(
+<span class="ansi-green-fg">    329</span>         msg<span style="color:rgb(98,98,98)">.</span>format(arguments<span style="color:rgb(98,98,98)">=</span>_format_argument_list(allow_args)),
+<span class="ansi-green-fg">    330</span>         <span style="font-weight:bold;color:rgb(215,95,95)">FutureWarning</span>,
+<span class="ansi-green-fg">    331</span>         stacklevel<span style="color:rgb(98,98,98)">=</span>find_stack_level(),
+<span class="ansi-green-fg">    332</span>     )
+<span class="ansi-green-fg ansi-bold">--&gt; 333</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> func(<span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
 
-       2023/24   2023/24(*)  
-0  $51,915,615  $53,458,234  
-1   $3,835,738   $3,949,713  
-2  $30,800,000  $31,715,190  
-3  $35,680,595  $36,740,807  
-4          NaN          NaN  </code></pre>
-</div>
-</div>
-<div id="1c895589" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_2019_20 <span class="op">=</span> df_salary[[<span class="st">'playerName'</span>,<span class="st">'2019/20'</span>]].dropna()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_2020_21 <span class="op">=</span> df_salary[[<span class="st">'playerName'</span>,<span class="st">'2020/21'</span>]].dropna()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_2021_22 <span class="op">=</span> df_salary[[<span class="st">'playerName'</span>,<span class="st">'2021/22'</span>]].dropna()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_2022_23 <span class="op">=</span> df_salary[[<span class="st">'playerName'</span>,<span class="st">'2022/23'</span>]].dropna()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_2023_24 <span class="op">=</span> df_salary[[<span class="st">'playerName'</span>,<span class="st">'2023/24'</span>]].dropna()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df_2019_20.rename(columns<span class="op">=</span>{<span class="st">'playerName'</span>:<span class="st">'Player_name'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df_2020_21.rename(columns<span class="op">=</span>{<span class="st">'playerName'</span>:<span class="st">'Player_name'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df_2021_22.rename(columns<span class="op">=</span>{<span class="st">'playerName'</span>:<span class="st">'Player_name'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df_2022_23.rename(columns<span class="op">=</span>{<span class="st">'playerName'</span>:<span class="st">'Player_name'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>df_2023_24.rename(columns<span class="op">=</span>{<span class="st">'playerName'</span>:<span class="st">'Player_name'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>df_selectd <span class="op">=</span> df[[<span class="st">'Season'</span>,<span class="st">'Player'</span>,<span class="st">'Pos'</span>]]</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df_selectd.rename(columns<span class="op">=</span>{<span class="st">'Player'</span>:<span class="st">'player_name'</span>,<span class="st">'Season'</span>:<span class="st">'season'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>save_path_6 <span class="op">=</span> <span class="st">"../data/player_pos.csv"</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df_selectd.to_csv(save_path_6, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\27508\AppData\Local\Temp\ipykernel_38744\1694157263.py:13: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\core\generic.py:3967</span>, in <span class="ansi-cyan-fg">NDFrame.to_csv</span><span class="ansi-blue-fg ansi-bold">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="ansi-green-fg">   3956</span> df <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(<span style="color:rgb(0,135,0)">self</span>, ABCDataFrame) <span style="font-weight:bold;color:rgb(0,135,0)">else</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>to_frame()
+<span class="ansi-green-fg">   3958</span> formatter <span style="color:rgb(98,98,98)">=</span> DataFrameFormatter(
+<span class="ansi-green-fg">   3959</span>     frame<span style="color:rgb(98,98,98)">=</span>df,
+<span class="ansi-green-fg">   3960</span>     header<span style="color:rgb(98,98,98)">=</span>header,
+<span class="ansi-green-fg ansi-bold">   (...)</span>
+<span class="ansi-green-fg">   3964</span>     decimal<span style="color:rgb(98,98,98)">=</span>decimal,
+<span class="ansi-green-fg">   3965</span> )
+<span class="ansi-green-fg ansi-bold">-&gt; 3967</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> DataFrameRenderer(formatter)<span style="color:rgb(98,98,98)">.</span>to_csv(
+<span class="ansi-green-fg">   3968</span>     path_or_buf,
+<span class="ansi-green-fg">   3969</span>     lineterminator<span style="color:rgb(98,98,98)">=</span>lineterminator,
+<span class="ansi-green-fg">   3970</span>     sep<span style="color:rgb(98,98,98)">=</span>sep,
+<span class="ansi-green-fg">   3971</span>     encoding<span style="color:rgb(98,98,98)">=</span>encoding,
+<span class="ansi-green-fg">   3972</span>     errors<span style="color:rgb(98,98,98)">=</span>errors,
+<span class="ansi-green-fg">   3973</span>     compression<span style="color:rgb(98,98,98)">=</span>compression,
+<span class="ansi-green-fg">   3974</span>     quoting<span style="color:rgb(98,98,98)">=</span>quoting,
+<span class="ansi-green-fg">   3975</span>     columns<span style="color:rgb(98,98,98)">=</span>columns,
+<span class="ansi-green-fg">   3976</span>     index_label<span style="color:rgb(98,98,98)">=</span>index_label,
+<span class="ansi-green-fg">   3977</span>     mode<span style="color:rgb(98,98,98)">=</span>mode,
+<span class="ansi-green-fg">   3978</span>     chunksize<span style="color:rgb(98,98,98)">=</span>chunksize,
+<span class="ansi-green-fg">   3979</span>     quotechar<span style="color:rgb(98,98,98)">=</span>quotechar,
+<span class="ansi-green-fg">   3980</span>     date_format<span style="color:rgb(98,98,98)">=</span>date_format,
+<span class="ansi-green-fg">   3981</span>     doublequote<span style="color:rgb(98,98,98)">=</span>doublequote,
+<span class="ansi-green-fg">   3982</span>     escapechar<span style="color:rgb(98,98,98)">=</span>escapechar,
+<span class="ansi-green-fg">   3983</span>     storage_options<span style="color:rgb(98,98,98)">=</span>storage_options,
+<span class="ansi-green-fg">   3984</span> )
 
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_selectd.rename(columns={'Player':'player_name','Season':'season'}, inplace=True)</code></pre>
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\io\formats\format.py:1014</span>, in <span class="ansi-cyan-fg">DataFrameRenderer.to_csv</span><span class="ansi-blue-fg ansi-bold">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="ansi-green-fg">    993</span>     created_buffer <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">False</span>
+<span class="ansi-green-fg">    995</span> csv_formatter <span style="color:rgb(98,98,98)">=</span> CSVFormatter(
+<span class="ansi-green-fg">    996</span>     path_or_buf<span style="color:rgb(98,98,98)">=</span>path_or_buf,
+<span class="ansi-green-fg">    997</span>     lineterminator<span style="color:rgb(98,98,98)">=</span>lineterminator,
+<span class="ansi-green-fg ansi-bold">   (...)</span>
+<span class="ansi-green-fg">   1012</span>     formatter<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>fmt,
+<span class="ansi-green-fg">   1013</span> )
+<span class="ansi-green-fg ansi-bold">-&gt; 1014</span> csv_formatter<span style="color:rgb(98,98,98)">.</span>save()
+<span class="ansi-green-fg">   1016</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> created_buffer:
+<span class="ansi-green-fg">   1017</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">isinstance</span>(path_or_buf, StringIO)
+
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\io\formats\csvs.py:251</span>, in <span class="ansi-cyan-fg">CSVFormatter.save</span><span class="ansi-blue-fg ansi-bold">(self)</span>
+<span class="ansi-green-fg">    247</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg">    248</span> <span style="font-style:italic;color:rgb(175,0,0)">Create the writer &amp; save.</span>
+<span class="ansi-green-fg">    249</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg">    250</span> <span style="font-style:italic;color:rgb(95,135,135)"># apply compression and byte/text conversion</span>
+<span class="ansi-green-fg ansi-bold">--&gt; 251</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> get_handle(
+<span class="ansi-green-fg">    252</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>filepath_or_buffer,
+<span class="ansi-green-fg">    253</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>mode,
+<span class="ansi-green-fg">    254</span>     encoding<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>encoding,
+<span class="ansi-green-fg">    255</span>     errors<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>errors,
+<span class="ansi-green-fg">    256</span>     compression<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>compression,
+<span class="ansi-green-fg">    257</span>     storage_options<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>storage_options,
+<span class="ansi-green-fg">    258</span> ) <span style="font-weight:bold;color:rgb(0,135,0)">as</span> handles:
+<span class="ansi-green-fg">    259</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Note: self.encoding is irrelevant here</span>
+<span class="ansi-green-fg">    260</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>writer <span style="color:rgb(98,98,98)">=</span> csvlib<span style="color:rgb(98,98,98)">.</span>writer(
+<span class="ansi-green-fg">    261</span>         handles<span style="color:rgb(98,98,98)">.</span>handle,
+<span class="ansi-green-fg">    262</span>         lineterminator<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>lineterminator,
+<span class="ansi-green-fg ansi-bold">   (...)</span>
+<span class="ansi-green-fg">    267</span>         quotechar<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>quotechar,
+<span class="ansi-green-fg">    268</span>     )
+<span class="ansi-green-fg">    270</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_save()
+
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\io\common.py:749</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg ansi-bold">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="ansi-green-fg">    747</span> <span style="font-style:italic;color:rgb(95,135,135)"># Only for write methods</span>
+<span class="ansi-green-fg">    748</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">r</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> mode <span style="font-weight:bold;color:rgb(175,0,255)">and</span> is_path:
+<span class="ansi-green-fg ansi-bold">--&gt; 749</span>     check_parent_directory(<span style="color:rgb(0,135,0)">str</span>(handle))
+<span class="ansi-green-fg">    751</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> compression:
+<span class="ansi-green-fg">    752</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> compression <span style="color:rgb(98,98,98)">!=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">zstd</span><span style="color:rgb(175,0,0)">"</span>:
+<span class="ansi-green-fg">    753</span>         <span style="font-style:italic;color:rgb(95,135,135)"># compression libraries do not like an explicit text-mode</span>
+
+File <span class="ansi-green-fg ansi-bold">c:\Users\27508\anaconda3\Lib\site-packages\pandas\io\common.py:616</span>, in <span class="ansi-cyan-fg">check_parent_directory</span><span class="ansi-blue-fg ansi-bold">(path)</span>
+<span class="ansi-green-fg">    614</span> parent <span style="color:rgb(98,98,98)">=</span> Path(path)<span style="color:rgb(98,98,98)">.</span>parent
+<span class="ansi-green-fg">    615</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> parent<span style="color:rgb(98,98,98)">.</span>is_dir():
+<span class="ansi-green-fg ansi-bold">--&gt; 616</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">OSError</span>(<span style="color:rgb(175,0,0)">rf</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Cannot save file into a non-existent directory: </span><span style="color:rgb(175,0,0)">'</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>parent<span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg ansi-bold">OSError</span>: Cannot save file into a non-existent directory: 'E:\Advanced program'</pre>
 </div>
 </div>
-<div id="f24cb004" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_pos <span class="op">=</span> pd.read_csv(<span class="st">"../data/player_pos.csv"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>seasons <span class="op">=</span> df_pos[<span class="st">"season"</span>].unique()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> seasons:</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    df_season <span class="op">=</span> df_pos[df_pos[<span class="st">"season"</span>] <span class="op">==</span> season]</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> <span class="ss">f"season_</span><span class="sc">{</span>season<span class="sc">}</span><span class="ss">.csv"</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    save_path_7 <span class="op">=</span> <span class="ss">f"../data/</span><span class="sc">{</span>file_name<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    df_season.to_csv(save_path_7, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>df_pos_2019 <span class="op">=</span> pd.read_csv(<span class="st">"../data/season_2019.csv"</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>df_pos_2020 <span class="op">=</span> pd.read_csv(<span class="st">"../data/season_2020.csv"</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>df_pos_2021 <span class="op">=</span> pd.read_csv(<span class="st">"../data/season_2021.csv"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>df_pos_2022 <span class="op">=</span> pd.read_csv(<span class="st">"../data/season_2022.csv"</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>df_merged_data_2019 <span class="op">=</span> pd.read_csv(<span class="st">"../data/merged_data_19-20.csv"</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>df_merged_data_2020 <span class="op">=</span> pd.read_csv(<span class="st">"../data/merged_data_20-21.csv"</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>df_merged_data_2021 <span class="op">=</span> pd.read_csv(<span class="st">"../data/merged_data_21-22.csv"</span>)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>df_merged_data_2022 <span class="op">=</span> pd.read_csv(<span class="st">"../data/merged_data_22-23.csv"</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2019 <span class="op">=</span> pd.merge(df_merged_data_2019, df_pos_2019, on<span class="op">=</span><span class="st">'player_name'</span>, how<span class="op">=</span><span class="st">'left'</span>).dropna(subset<span class="op">=</span>[<span class="st">'Pos'</span>])</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2020 <span class="op">=</span> pd.merge(df_merged_data_2020, df_pos_2020, on<span class="op">=</span><span class="st">'player_name'</span>, how<span class="op">=</span><span class="st">'left'</span>).dropna(subset<span class="op">=</span>[<span class="st">'Pos'</span>])</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2021 <span class="op">=</span> pd.merge(df_merged_data_2021, df_pos_2021, on<span class="op">=</span><span class="st">'player_name'</span>, how<span class="op">=</span><span class="st">'left'</span>).dropna(subset<span class="op">=</span>[<span class="st">'Pos'</span>])</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2022 <span class="op">=</span> pd.merge(df_merged_data_2022, df_pos_2022, on<span class="op">=</span><span class="st">'player_name'</span>, how<span class="op">=</span><span class="st">'left'</span>).dropna(subset<span class="op">=</span>[<span class="st">'Pos'</span>])</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>save_path_8 <span class="op">=</span> <span class="st">"../data/merged_data_pos-2019.csv"</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>save_path_9 <span class="op">=</span> <span class="st">"../data/merged_data_pos-2020.csv"</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>save_path_10 <span class="op">=</span> <span class="st">"../data/merged_data_pos-2021.csv"</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>save_path_11 <span class="op">=</span> <span class="st">"../data/merged_data_pos-2022.csv"</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2019.to_csv(save_path_8, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2020.to_csv(save_path_9, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2021.to_csv(save_path_10, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>df_merged_data_pos_2022.to_csv(save_path_11, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

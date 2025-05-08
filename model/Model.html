@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -168,83 +171,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVR</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fd7dcd7a" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_list<span class="op">=</span>[<span class="st">"./data/merged_data_pos-2019.csv"</span>,<span class="st">"./data/merged_data_pos-2020.csv"</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">"./data/merged_data_pos-2021.csv"</span>,<span class="st">"./data/merged_data_pos-2022.csv"</span>]</span>
+<div id="fd7dcd7a" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_list<span class="op">=</span>[<span class="st">"../../data/merged_data_pos-2019.csv"</span>,<span class="st">"../../data/merged_data_pos-2020.csv"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">"../../data/merged_data_pos-2021.csv"</span>,<span class="st">"../../data/merged_data_pos-2022.csv"</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> combined <span class="op">=</span> pd.concat([pd.read_csv(<span class="bu">file</span>)<span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> file_list],ignore_index<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#df  = pd.read_csv("../data/merged_data_pos-2019.csv")</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg ansi-bold">In[10], line 3</span>
-<span class="ansi-green-fg">      1</span> file_list<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">../data/merged_data_pos-2019.csv</span><span style="color:rgb(175,0,0)">"</span>,<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">./data/merged_data_pos-2020.csv</span><span style="color:rgb(175,0,0)">"</span>,
-<span class="ansi-green-fg">      2</span>            <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">./data/merged_data_pos-2021.csv</span><span style="color:rgb(175,0,0)">"</span>,<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">./data/merged_data_pos-2022.csv</span><span style="color:rgb(175,0,0)">"</span>]
-<span class="ansi-green-fg ansi-bold">----&gt; 3</span> df <span style="color:rgb(98,98,98)">=</span> combined <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>concat([pd<span style="color:rgb(98,98,98)">.</span>read_csv(file)<span style="font-weight:bold;color:rgb(0,135,0)">for</span> file <span style="font-weight:bold;color:rgb(175,0,255)">in</span> file_list],ignore_index<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
-<span class="ansi-green-fg">      4</span> <span style="font-style:italic;color:rgb(95,135,135)">#df  = pd.read_csv("../data/merged_data_pos-2019.csv")</span>
-<span class="ansi-green-fg">      5</span> df<span style="color:rgb(98,98,98)">.</span>head(<span style="color:rgb(98,98,98)">3</span>)
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
 
-File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py:1026</span>, in <span class="ansi-cyan-fg">read_csv</span><span class="ansi-blue-fg ansi-bold">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="ansi-green-fg">   1013</span> kwds_defaults <span style="color:rgb(98,98,98)">=</span> _refine_defaults_read(
-<span class="ansi-green-fg">   1014</span>     dialect,
-<span class="ansi-green-fg">   1015</span>     delimiter,
-<span class="ansi-green-fg ansi-bold">   (...)</span>
-<span class="ansi-green-fg">   1022</span>     dtype_backend<span style="color:rgb(98,98,98)">=</span>dtype_backend,
-<span class="ansi-green-fg">   1023</span> )
-<span class="ansi-green-fg">   1024</span> kwds<span style="color:rgb(98,98,98)">.</span>update(kwds_defaults)
-<span class="ansi-green-fg ansi-bold">-&gt; 1026</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> _read(filepath_or_buffer, kwds)
 
-File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py:620</span>, in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-fg ansi-bold">(filepath_or_buffer, kwds)</span>
-<span class="ansi-green-fg">    617</span> _validate_names(kwds<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">names</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>))
-<span class="ansi-green-fg">    619</span> <span style="font-style:italic;color:rgb(95,135,135)"># Create the parser.</span>
-<span class="ansi-green-fg ansi-bold">--&gt; 620</span> parser <span style="color:rgb(98,98,98)">=</span> TextFileReader(filepath_or_buffer, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwds)
-<span class="ansi-green-fg">    622</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> chunksize <span style="font-weight:bold;color:rgb(175,0,255)">or</span> iterator:
-<span class="ansi-green-fg">    623</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> parser
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">player_name</th>
+<th data-quarto-table-cell-role="th">...1</th>
+<th data-quarto-table-cell-role="th">team_abbreviation</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">player_height</th>
+<th data-quarto-table-cell-role="th">player_weight</th>
+<th data-quarto-table-cell-role="th">college</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">draft_year</th>
+<th data-quarto-table-cell-role="th">draft_round</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">dreb_pct</th>
+<th data-quarto-table-cell-role="th">usg_pct</th>
+<th data-quarto-table-cell-role="th">ts_pct</th>
+<th data-quarto-table-cell-role="th">ast_pct</th>
+<th data-quarto-table-cell-role="th">season.x</th>
+<th data-quarto-table-cell-role="th">Salary</th>
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">Pos</th>
+<th data-quarto-table-cell-role="th">season_x</th>
+<th data-quarto-table-cell-role="th">season_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Aaron Gordon</td>
+<td>10851</td>
+<td>ORL</td>
+<td>24</td>
+<td>203.20</td>
+<td>106.59412</td>
+<td>Arizona</td>
+<td>USA</td>
+<td>NaN</td>
+<td>1</td>
+<td>...</td>
+<td>0.181</td>
+<td>0.205</td>
+<td>0.516</td>
+<td>0.165</td>
+<td>2019-20</td>
+<td>19863636</td>
+<td>2019.0</td>
+<td>PF</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Aaron Holiday</td>
+<td>10850</td>
+<td>IND</td>
+<td>23</td>
+<td>182.88</td>
+<td>83.91452</td>
+<td>UCLA</td>
+<td>USA</td>
+<td>NaN</td>
+<td>1</td>
+<td>...</td>
+<td>0.077</td>
+<td>0.182</td>
+<td>0.521</td>
+<td>0.188</td>
+<td>2019-20</td>
+<td>2239200</td>
+<td>2019.0</td>
+<td>PG</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abdel Nader</td>
+<td>10849</td>
+<td>OKC</td>
+<td>26</td>
+<td>195.58</td>
+<td>102.05820</td>
+<td>Iowa State</td>
+<td>Egypt</td>
+<td>NaN</td>
+<td>2</td>
+<td>...</td>
+<td>0.095</td>
+<td>0.164</td>
+<td>0.591</td>
+<td>0.068</td>
+<td>2019-20</td>
+<td>1618520</td>
+<td>2019.0</td>
+<td>SF</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
 
-File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py:1620</span>, in <span class="ansi-cyan-fg">TextFileReader.__init__</span><span class="ansi-blue-fg ansi-bold">(self, f, engine, **kwds)</span>
-<span class="ansi-green-fg">   1617</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> kwds[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>]
-<span class="ansi-green-fg">   1619</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles: IOHandles <span style="color:rgb(98,98,98)">|</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
-<span class="ansi-green-fg ansi-bold">-&gt; 1620</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_engine <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_make_engine(f, <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>engine)
-
-File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py:1880</span>, in <span class="ansi-cyan-fg">TextFileReader._make_engine</span><span class="ansi-blue-fg ansi-bold">(self, f, engine)</span>
-<span class="ansi-green-fg">   1878</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> mode:
-<span class="ansi-green-fg">   1879</span>         mode <span style="color:rgb(98,98,98)">+</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">-&gt; 1880</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="color:rgb(98,98,98)">=</span> get_handle(
-<span class="ansi-green-fg">   1881</span>     f,
-<span class="ansi-green-fg">   1882</span>     mode,
-<span class="ansi-green-fg">   1883</span>     encoding<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">encoding</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>),
-<span class="ansi-green-fg">   1884</span>     compression<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">compression</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>),
-<span class="ansi-green-fg">   1885</span>     memory_map<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">memory_map</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">False</span>),
-<span class="ansi-green-fg">   1886</span>     is_text<span style="color:rgb(98,98,98)">=</span>is_text,
-<span class="ansi-green-fg">   1887</span>     errors<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">encoding_errors</span><span style="color:rgb(175,0,0)">"</span>, <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">strict</span><span style="color:rgb(175,0,0)">"</span>),
-<span class="ansi-green-fg">   1888</span>     storage_options<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">storage_options</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>),
-<span class="ansi-green-fg">   1889</span> )
-<span class="ansi-green-fg">   1890</span> <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
-<span class="ansi-green-fg">   1891</span> f <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles<span style="color:rgb(98,98,98)">.</span>handle
-
-File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\io\common.py:873</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg ansi-bold">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="ansi-green-fg">    868</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> <span style="color:rgb(0,135,0)">isinstance</span>(handle, <span style="color:rgb(0,135,0)">str</span>):
-<span class="ansi-green-fg">    869</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Check whether the filename is to be opened in binary mode.</span>
-<span class="ansi-green-fg">    870</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode does not support 'encoding' and 'newline'.</span>
-<span class="ansi-green-fg">    871</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> ioargs<span style="color:rgb(98,98,98)">.</span>encoding <span style="font-weight:bold;color:rgb(175,0,255)">and</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> ioargs<span style="color:rgb(98,98,98)">.</span>mode:
-<span class="ansi-green-fg">    872</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Encoding</span>
-<span class="ansi-green-fg ansi-bold">--&gt; 873</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">open</span>(
-<span class="ansi-green-fg">    874</span>             handle,
-<span class="ansi-green-fg">    875</span>             ioargs<span style="color:rgb(98,98,98)">.</span>mode,
-<span class="ansi-green-fg">    876</span>             encoding<span style="color:rgb(98,98,98)">=</span>ioargs<span style="color:rgb(98,98,98)">.</span>encoding,
-<span class="ansi-green-fg">    877</span>             errors<span style="color:rgb(98,98,98)">=</span>errors,
-<span class="ansi-green-fg">    878</span>             newline<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">"</span>,
-<span class="ansi-green-fg">    879</span>         )
-<span class="ansi-green-fg">    880</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">    881</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode</span>
-<span class="ansi-green-fg">    882</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">open</span>(handle, ioargs<span style="color:rgb(98,98,98)">.</span>mode)
-
-<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>: [Errno 2] No such file or directory: '../data/merged_data_pos-2019.csv'</pre>
+<p>3 rows × 27 columns</p>
 </div>
 </div>
 </div>
-<div id="497feea7" class="cell" data-execution_count="3">
+<div id="497feea7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>old_df <span class="op">=</span> df[[<span class="st">'player_name'</span>,<span class="st">'pts'</span>,<span class="st">'reb'</span>,<span class="st">'ast'</span>,<span class="st">'Salary'</span>]]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> df[[<span class="st">'player_name'</span>,<span class="st">'age'</span>,<span class="st">'player_weight'</span>,<span class="st">'player_weight'</span>,<span class="st">'pts'</span>,<span class="st">'reb'</span>,<span class="st">'ast'</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="st">'net_rating'</span>,<span class="st">'oreb_pct'</span>,<span class="st">'dreb_pct'</span>,<span class="st">'usg_pct'</span>,<span class="st">'ts_pct'</span>,<span class="st">'ast_pct'</span>,<span class="st">'Salary'</span>]]</span>
@@ -294,10 +338,10 @@ File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-pac
 [1831 rows x 14 columns]</code></pre>
 </div>
 </div>
-<div id="b7891ef1" class="cell" data-execution_count="4">
+<div id="b7891ef1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>old_df.isnull().<span class="bu">sum</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>new_df.isnull().<span class="bu">sum</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>player_name      0
 age              0
 player_weight    0
@@ -315,7 +359,7 @@ Salary           0
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="39dc71e3" class="cell" data-execution_count="5">
+<div id="39dc71e3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x_old <span class="op">=</span> old_df.drop(columns<span class="op">=</span>[<span class="st">'Salary'</span>,<span class="st">'player_name'</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y_old <span class="op">=</span> new_df[<span class="st">'Salary'</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x_train_old,x_test_old,y_train_old,y_test_old <span class="op">=</span> train_test_split(x_old,y_old,test_size<span class="op">=</span><span class="fl">0.2</span>,random_state<span class="op">=</span><span class="dv">123</span>)</span>
@@ -323,7 +367,7 @@ dtype: int64</code></pre>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>y_new <span class="op">=</span> new_df[<span class="st">'Salary'</span>]</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>x_train_new, x_test_new, y_train_new, y_test_new <span class="op">=</span> train_test_split(x_new, y_new, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="70b011fa" class="cell" data-execution_count="9">
+<div id="70b011fa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># models to train</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> {</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Linear Regression'</span>: LinearRegression(),</span>
@@ -381,7 +425,7 @@ All Features_SVM Regressor            7.089481e+06  1.169553e+07 -0.242771
 All Features_Random Forest Regressor  2.652626e+06  4.316311e+06  0.830731</code></pre>
 </div>
 </div>
-<div id="626e93af" class="cell" data-execution_count="10">
+<div id="626e93af" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>results_df_old[<span class="st">"Model Type"</span>] <span class="op">=</span> <span class="st">"Three Features"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>results_df_new[<span class="st">"Model Type"</span>] <span class="op">=</span> <span class="st">"All Features"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -410,6 +454,476 @@ All Features_Random Forest Regressor  2.652626e+06  4.316311e+06  0.830731</code
 <div>
 <figure class="figure">
 <p><img src="Model_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="c961a310" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_cleaned <span class="op">=</span> df.dropna(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_cleaned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">player_name</th>
+<th data-quarto-table-cell-role="th">...1</th>
+<th data-quarto-table-cell-role="th">team_abbreviation</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">player_height</th>
+<th data-quarto-table-cell-role="th">player_weight</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">draft_round</th>
+<th data-quarto-table-cell-role="th">draft_number</th>
+<th data-quarto-table-cell-role="th">gp</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">reb</th>
+<th data-quarto-table-cell-role="th">ast</th>
+<th data-quarto-table-cell-role="th">net_rating</th>
+<th data-quarto-table-cell-role="th">oreb_pct</th>
+<th data-quarto-table-cell-role="th">dreb_pct</th>
+<th data-quarto-table-cell-role="th">usg_pct</th>
+<th data-quarto-table-cell-role="th">ts_pct</th>
+<th data-quarto-table-cell-role="th">ast_pct</th>
+<th data-quarto-table-cell-role="th">Salary</th>
+<th data-quarto-table-cell-role="th">Pos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Aaron Gordon</td>
+<td>10851</td>
+<td>ORL</td>
+<td>24</td>
+<td>203.20</td>
+<td>106.59412</td>
+<td>USA</td>
+<td>1</td>
+<td>4</td>
+<td>62</td>
+<td>...</td>
+<td>7.7</td>
+<td>3.7</td>
+<td>-1.2</td>
+<td>0.050</td>
+<td>0.181</td>
+<td>0.205</td>
+<td>0.516</td>
+<td>0.165</td>
+<td>19863636</td>
+<td>PF</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Aaron Holiday</td>
+<td>10850</td>
+<td>IND</td>
+<td>23</td>
+<td>182.88</td>
+<td>83.91452</td>
+<td>USA</td>
+<td>1</td>
+<td>23</td>
+<td>66</td>
+<td>...</td>
+<td>2.4</td>
+<td>3.4</td>
+<td>2.2</td>
+<td>0.013</td>
+<td>0.077</td>
+<td>0.182</td>
+<td>0.521</td>
+<td>0.188</td>
+<td>2239200</td>
+<td>PG</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abdel Nader</td>
+<td>10849</td>
+<td>OKC</td>
+<td>26</td>
+<td>195.58</td>
+<td>102.05820</td>
+<td>Egypt</td>
+<td>2</td>
+<td>58</td>
+<td>55</td>
+<td>...</td>
+<td>1.8</td>
+<td>0.7</td>
+<td>-4.2</td>
+<td>0.016</td>
+<td>0.095</td>
+<td>0.164</td>
+<td>0.591</td>
+<td>0.068</td>
+<td>1618520</td>
+<td>SF</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Al Horford</td>
+<td>10846</td>
+<td>PHI</td>
+<td>34</td>
+<td>205.74</td>
+<td>108.86208</td>
+<td>Dominican Republic</td>
+<td>1</td>
+<td>3</td>
+<td>67</td>
+<td>...</td>
+<td>6.8</td>
+<td>4.0</td>
+<td>3.3</td>
+<td>0.051</td>
+<td>0.171</td>
+<td>0.173</td>
+<td>0.536</td>
+<td>0.187</td>
+<td>28000000</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Al-Farouq Aminu</td>
+<td>10853</td>
+<td>ORL</td>
+<td>29</td>
+<td>203.20</td>
+<td>99.79024</td>
+<td>USA</td>
+<td>1</td>
+<td>8</td>
+<td>18</td>
+<td>...</td>
+<td>4.8</td>
+<td>1.2</td>
+<td>-5.4</td>
+<td>0.053</td>
+<td>0.158</td>
+<td>0.127</td>
+<td>0.395</td>
+<td>0.088</td>
+<td>9258000</td>
+<td>PF</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1826</td>
+<td>Yuta Watanabe</td>
+<td>12415</td>
+<td>BKN</td>
+<td>28</td>
+<td>203.20</td>
+<td>97.52228</td>
+<td>Japan</td>
+<td>Undrafted</td>
+<td>Undrafted</td>
+<td>58</td>
+<td>...</td>
+<td>2.4</td>
+<td>0.8</td>
+<td>-0.6</td>
+<td>0.034</td>
+<td>0.117</td>
+<td>0.127</td>
+<td>0.637</td>
+<td>0.071</td>
+<td>1968175</td>
+<td>SF</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1827</td>
+<td>Zach Collins</td>
+<td>12414</td>
+<td>SAS</td>
+<td>25</td>
+<td>210.82</td>
+<td>113.39800</td>
+<td>USA</td>
+<td>1</td>
+<td>10</td>
+<td>63</td>
+<td>...</td>
+<td>6.4</td>
+<td>2.9</td>
+<td>-7.5</td>
+<td>0.076</td>
+<td>0.190</td>
+<td>0.209</td>
+<td>0.599</td>
+<td>0.180</td>
+<td>7350000</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1828</td>
+<td>Zach LaVine</td>
+<td>12413</td>
+<td>CHI</td>
+<td>28</td>
+<td>195.58</td>
+<td>90.71840</td>
+<td>USA</td>
+<td>1</td>
+<td>13</td>
+<td>77</td>
+<td>...</td>
+<td>4.5</td>
+<td>4.2</td>
+<td>0.3</td>
+<td>0.016</td>
+<td>0.108</td>
+<td>0.278</td>
+<td>0.607</td>
+<td>0.187</td>
+<td>37096500</td>
+<td>SG</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1829</td>
+<td>Zeke Nnaji</td>
+<td>12412</td>
+<td>DEN</td>
+<td>22</td>
+<td>205.74</td>
+<td>108.86208</td>
+<td>USA</td>
+<td>1</td>
+<td>22</td>
+<td>53</td>
+<td>...</td>
+<td>2.6</td>
+<td>0.3</td>
+<td>-5.9</td>
+<td>0.087</td>
+<td>0.099</td>
+<td>0.149</td>
+<td>0.620</td>
+<td>0.040</td>
+<td>2617800</td>
+<td>PF</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1830</td>
+<td>Ziaire Williams</td>
+<td>12411</td>
+<td>MEM</td>
+<td>21</td>
+<td>205.74</td>
+<td>83.91452</td>
+<td>USA</td>
+<td>1</td>
+<td>10</td>
+<td>37</td>
+<td>...</td>
+<td>2.1</td>
+<td>0.9</td>
+<td>-5.2</td>
+<td>0.028</td>
+<td>0.105</td>
+<td>0.178</td>
+<td>0.511</td>
+<td>0.086</td>
+<td>4591680</td>
+<td>SF</td>
+</tr>
+</tbody>
+</table>
+
+<p>1831 rows × 21 columns</p>
+</div>
+</div>
+</div>
+<div id="d703d193" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LassoCV</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="bde6f3dc" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_cleaned <span class="op">=</span> df_cleaned.drop(df_cleaned.columns[:<span class="dv">2</span>].tolist() <span class="op">+</span> [<span class="st">'country'</span>, <span class="st">'draft_round'</span>, <span class="st">'draft_number'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 只保留数值型特征用于建模</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_cleaned.drop(columns<span class="op">=</span>[<span class="st">'Salary'</span>]).select_dtypes(include<span class="op">=</span><span class="st">'number'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_cleaned[<span class="st">'Salary'</span>]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 标准化处理（PCA 和 Lasso 需要）</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4cdc75ea" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== PCA ==========</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="fl">0.95</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X_scaled)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>pca_components <span class="op">=</span> pd.DataFrame(np.<span class="bu">abs</span>(pca.components_), columns<span class="op">=</span>X.columns)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>pca_importance <span class="op">=</span> pca_components.<span class="bu">max</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a69fb93b" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== Random Forest ==========</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rf.fit(X, y)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>rf_importance <span class="op">=</span> pd.Series(rf.feature_importances_, index<span class="op">=</span>X.columns).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5902a109" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== Lasso ==========</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lasso <span class="op">=</span> LassoCV(cv<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>lasso.fit(X_scaled, y)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>lasso_importance <span class="op">=</span> pd.Series(np.<span class="bu">abs</span>(lasso.coef_), index<span class="op">=</span>X.columns)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>lasso_importance <span class="op">=</span> lasso_importance[lasso_importance <span class="op">&gt;</span> <span class="dv">0</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f36f9edc" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">5</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>pca_importance.head(<span class="dv">10</span>).plot(kind<span class="op">=</span><span class="st">'barh'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Feature Influence (Top 10)'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Loading Magnitude'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Model_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="65d679ab" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rf_importance.head(<span class="dv">10</span>).plot(kind<span class="op">=</span><span class="st">'barh'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Random Forest Feature Importance (Top 10)'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Importance'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Model_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b35a063d" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>lasso_importance.head(<span class="dv">10</span>).plot(kind<span class="op">=</span><span class="st">'barh'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Lasso Feature Coefficients (Top 10)'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coefficient (abs)'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Model_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="66846c99" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>top_pca_features <span class="op">=</span> pca_importance.head(<span class="dv">10</span>).index.tolist()</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest：取累计重要性达 95% 的特征</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>cumulative_importance <span class="op">=</span> rf_importance.cumsum()</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>selected_rf_features <span class="op">=</span> cumulative_importance[cumulative_importance <span class="op">&lt;=</span> <span class="fl">0.95</span>].index.tolist()</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasso：直接从非零系数中提取出来的特征（你已做好）</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>selected_lasso_features <span class="op">=</span> lasso_importance.index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7ebdd61c" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_rf(feature_list, X, y):</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    X_subset <span class="op">=</span> X[feature_list]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_subset, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> RandomForestRegressor(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    model.fit(X_train, y_train)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">'mse'</span>: mse, <span class="st">'r2'</span>: r2}</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 避免特征不在 X 里（保险写法）</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>top_pca_features <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> top_pca_features <span class="cf">if</span> f <span class="kw">in</span> X.columns]</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>selected_rf_features <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> selected_rf_features <span class="cf">if</span> f <span class="kw">in</span> X.columns]</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>selected_lasso_features <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> selected_lasso_features <span class="cf">if</span> f <span class="kw">in</span> X.columns]</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PCA'</span>: evaluate_rf(top_pca_features, X, y),</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Random Forest'</span>: evaluate_rf(selected_rf_features, X, y),</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Lasso'</span>: evaluate_rf(selected_lasso_features, X, y)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印结果表格</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>results_df <span class="op">=</span> pd.DataFrame(results).T</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        mse        r2
+PCA            2.554246e+13  0.724187
+Random Forest  2.594255e+13  0.719867
+Lasso          2.572417e+13  0.722225</code></pre>
+</div>
+</div>
+<div id="0149901d" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 可视化对比 ==========</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># MSE 图（对数刻度）</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].bar(results_df.index, results_df[<span class="st">'mse'</span>], color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Mean Squared Error (MSE)"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"MSE"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># R² 图</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].bar(results_df.index, results_df[<span class="st">'r2'</span>], color<span class="op">=</span><span class="st">'lightgreen'</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"R² Score"</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"R²"</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylim(<span class="fl">0.7</span>, <span class="fl">0.73</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Comparison of Feature Selection Methods (Random Forest as Predictor)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Model_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -508,7 +1022,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/Ruiqi-Qian\.github\.io\/NBA\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

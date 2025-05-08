@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>data Wrangling project group 5 – MSDS 597 PROJECT: NBA Data Analysis</title>
+<title>nba-api – MSDS 597 PROJECT: NBA Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">MSDS 597 PROJECT: NBA Data Analysis</span>
     </a>
   </div>
@@ -88,19 +122,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./data_cleaning/data_cleaning.html"> 
+    <a class="nav-link" href="../data_cleaning/data_cleaning.html"> 
 <span class="menu-text">data cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./visualization/visual.html"> 
+    <a class="nav-link" href="../visualization/visual.html"> 
 <span class="menu-text">Visualization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./model/Model.html"> 
+    <a class="nav-link" href="../model/Model.html"> 
 <span class="menu-text">model</span></a>
   </li>  
 </ul>
@@ -116,145 +150,86 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">data Wrangling project group 5</h1>
+
+
+
+<div id="001d25c3" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="96c0816c" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define headers to simulate a browser request (important for NBA API)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'User-Agent'</span>: <span class="st">'Mozilla/5.0'</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x-nba-stats-origin'</span>: <span class="st">'stats'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x-nba-stats-token'</span>: <span class="st">'true'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Referer'</span>: <span class="st">'https://www.nba.com/'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Accept-Encoding'</span>: <span class="st">'gzip, deflate, br'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Accept-Language'</span>: <span class="st">'en-US,en;q=0.9'</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fc9d0204" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NBA API endpoint for player stats per game (2023-24 season as example)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://stats.nba.com/stats/leaguedashplayerstats"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="23053909" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the parameters to fetch per game player stats</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Season"</span>: <span class="st">"2023-24"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SeasonType"</span>: <span class="st">"Regular Season"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MeasureType"</span>: <span class="st">"Base"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PerMode"</span>: <span class="st">"PerGame"</span>,  <span class="co"># Can be 'Totals' or 'PerGame'</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"LeagueID"</span>: <span class="st">"00"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Outcome"</span>: <span class="st">""</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Location"</span>: <span class="st">""</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Month"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SeasonSegment"</span>: <span class="st">""</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DateFrom"</span>: <span class="st">""</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DateTo"</span>: <span class="st">""</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OpponentTeamID"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VsConference"</span>: <span class="st">""</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VsDivision"</span>: <span class="st">""</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TeamID"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Conference"</span>: <span class="st">""</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Division"</span>: <span class="st">""</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GameSegment"</span>: <span class="st">""</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Period"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ShotClockRange"</span>: <span class="st">""</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"LastNGames"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GameScope"</span>: <span class="st">""</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlayerExperience"</span>: <span class="st">""</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlayerPosition"</span>: <span class="st">""</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"StarterBench"</span>: <span class="st">""</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TwoWay"</span>: <span class="st">"0"</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PORound"</span>: <span class="st">"0"</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3b2294b8" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Send GET request to NBA stats API</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers, params<span class="op">=</span>params, timeout<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Raise an error if the request was unsuccessful</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>response.raise_for_status()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse JSON response</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>data_json <span class="op">=</span> response.json()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract header and row data</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> data_json[<span class="st">'resultSets'</span>][<span class="dv">0</span>][<span class="st">'headers'</span>]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> data_json[<span class="st">'resultSets'</span>][<span class="dv">0</span>][<span class="st">'rowSet'</span>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to pandas DataFrame</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(rows, columns<span class="op">=</span>headers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3709386e" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display top 10 players sorted by PTS (Points per Game)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_sorted <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'PTS'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_sorted[[<span class="st">'PLAYER_NAME'</span>, <span class="st">'TEAM_ABBREVIATION'</span>, <span class="st">'PTS'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="nba-salary-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="nba-salary-analysis">NBA Salary Analysis</h2>
-</section>
-<section id="present-by-group-5" class="level1">
-<h1>Present by: Group 5</h1>
-<p>member: Ruiqi Qian, Zhishen Lin, Jiachen Xu, Zhechongyue, Xu</p>
-<p>This subtitle utilizes two datasets, which contain information on NBA players’ salaries from 2019 to 2023, as well as their positions, average points per game, average rebounds, and average assists. The aim of this section is to analyze these two datasets and link players’ salaries with their on-court performance, in order to study the relationship between players’ statistical performance and their salaries.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/manba.webp" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>NBA</figcaption>
-</figure>
-</div>
-<section id="project-summary" class="level2">
-<h2 class="anchored" data-anchor-id="project-summary">Project Summary</h2>
-</section>
-<section id="accessing-data" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-data">Accessing data</h2>
-<p>Our raw data can be downloaded here:</p>
-<p><a href="https://rutgers.box.com/s/2d8b2lxy0z238jw5ar5fafu6kysh9o9q">raw data</a></p>
-<p>Our processed data can be downloaded here:</p>
-<p><a href="https://rutgers.box.com/s/yb6srg0fuck95u3ktjayzskzdecpqra5">processed data</a></p>
-<p>NOTE: do not include your data in your git repo - it will likely be too large and cause issues.</p>
-</section>
-<section id="python-scripts-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="python-scripts-notebooks">Python scripts / notebooks</h2>
-<p>The following scripts/notebooks were used produce the summary:</p>
-<ul>
-<li><code>src/script.py</code></li>
-<li><code>notebooks/data_cleaning.ipynb</code></li>
-<li><code>notebooks/data_enrichment.ipynb</code></li>
-<li><code>notebooks/data_analysis.ipynb</code></li>
-</ul>
-<p>[Give a short description of what the notebooks contain, and their location in the git repo]</p>
-</section>
-</section>
-<section id="data_cleaningdata_cleaning.ipynb" class="level1">
-<h1>data_cleaning/data_cleaning.ipynb</h1>
-<p>This notebook focuses on cleaning and preprocessing the raw NBA datasets. Key tasks include handling missing values, converting data types, standardizing formats, and selecting relevant features. It ensures the data is ready for analysis and modeling in subsequent stages.</p>
-</section>
-<section id="visualizationvisual.ipynb" class="level1">
-<h1>visualization/visual.ipynb</h1>
-<p>This notebook provides visual insights into the NBA data through various plots and charts. It explores relationships between player salaries and performance metrics such as points, rebounds, and assists. Visualizations help uncover trends and patterns that support the modeling phase.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>PER BOX PLOT</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/2.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Score distribution plot</figcaption>
-</figure>
-</div>
-</section>
-<section id="modelmodel.ipynb" class="level1">
-<h1>model/Model.ipynb</h1>
-<p>This notebook develops predictive models to analyze or forecast NBA player salaries based on performance and other features. Techniques may include linear regression or machine learning algorithms. It evaluates model performance and interprets the results in context. We used lasso regression, random forest and PCA to choose features and predict the outcome.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/3.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Model outcome</figcaption>
-</figure>
-</div>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>Provide a <code>requirements.txt</code> file with packages and versions of all python packages to run the analysis.</p>
-</section>
-<section id="guide" class="level2">
-<h2 class="anchored" data-anchor-id="guide">Guide</h2>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
-<p>Your summary should include the following.</p>
-<p>Note: You do not need code in your summary - instead, reference where in your github repo the code is. The priority should be a concise, readable summary. You should include visualizations and conclusions regarding your data analysis.</p>
-<ol type="1">
-<li><p>describe where the data cam from, the format of the data, the nature of the data (e.g., what it contains, how often it is updated, etc). We get the 2 datasets from Kaggle and Github website.The first dataset examines NBA player performance across multiple seasons to determine key factors influencing salary. It includes attributes like points, assists, rebounds, net rating, draft details, and accolades <a href="https://www.kaggle.com/datasets/justinas/nba-players-data">https://www.kaggle.com/datasets/justinas/nba-players-data</a>. The second datasetpresents the Salary of NBA players during the 2019-2024 season <a href="https://github.com/madhurn1/PredictiveNBAContractValuationModel/blob/main/NBA%20Advanced%20Stats(2019%20-%202024).csv">https://github.com/madhurn1/PredictiveNBAContractValuationModel/blob/main/NBA%20Advanced%20Stats(2019%20-%202024).csv</a></p></li>
-<li><p>explain how you retrieved the data e.g.&nbsp;API, webscraping We just download the data on the website</p></li>
-<li><p>explain how you transformed raw data into tidy tabular data, including data cleaning Weloaded NBA player stats and salary data from 2019–2024. We cleaned the data by: Dropping missing values (e.g., in PER, TS%, salary, and position). Standardizing column names (e.g., changing Player to player_name). Selecting important columns like Season, Player, PER, TS%, Salary, and Position. Splitting the data by season for easier processing. Merging player stats with their position data, ensuring no missing positions. At each stage, we saved cleaned datasets to CSV files, preparing tidy, analysis-ready data organized by season.</p></li>
-<li><p>explain any tests you did to check data (e.g.&nbsp;using <code>pytest</code> to verify that no missing values are present in the tidied dataframes, verify that the resulting number of rows is reasonable)</p></li>
-<li><p>explain any data enrichment steps</p></li>
-<li><p>describe and explain meaningful summary statistics</p></li>
-<li><p>present around 4-6 visualizations related to the data, explain trends and conclusions</p></li>
-</ol>
-<p>You should have at least one interactive data widget.</p>
-<p>You can include figures for example from an external notebook: - https://quarto.org/docs/blog/posts/2023-03-17-jupyter-cell-embedding/ - https://quarto.org/docs/authoring/includes.html</p>
-<ol start="8" type="1">
-<li>at the end, display a graph of the git commit history</li>
-</ol>
-<p>For team members of 2: 10 commits. Of 3: 15 commits. Of 4: 20 commits.</p>
-<p>Your commits history elsewhere may be more dirty, but these 10-20 commits need to be clean and can be drawn as a graph.</p>
-<p>Make sure your git graphs include author names, commit messages, date, git tags if any.</p>
-<p>You can generate nice graphs of git commits with many tools. Among others, you could generate git-graphs using the following tools:</p>
-<ul>
-<li>in vscode: https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph</li>
-<li>https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs</li>
-<li>https://www.gitkraken.com/solutions/commit-graph</li>
-</ul>
-</section>
-<section id="data-storage-options" class="level3">
-<h3 class="anchored" data-anchor-id="data-storage-options">Data storage options</h3>
-<p>Some options for data storage:</p>
-<ul>
-<li>Box link (free with Rutgers account)</li>
-<li>Dropbox</li>
-<li>Google Drive</li>
-</ul>
-<p>The following companies have free data storage (up to ~5 GB) for 12 months. Be careful to make sure you’re within the free limits!!!</p>
-<ul>
-<li>AWS S3 https://aws.amazon.com/s3/</li>
-<li>Google Cloud https://cloud.google.com/free</li>
-<li>Microsoft Azure https://azure.microsoft.com/en-us/free/students</li>
-</ul>
-
-
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -137,122 +137,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="nba-salary-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="nba-salary-analysis">NBA Salary Analysis</h2>
-</section>
-<section id="present-by-group-5" class="level1">
-<h1>Present by: Group 5</h1>
-<p>member: Ruiqi Qian, Zhishen Lin, Jiachen Xu, Zhechongyue, Xu</p>
-<p>This subtitle utilizes two datasets, which contain information on NBA players’ salaries from 2019 to 2023, as well as their positions, average points per game, average rebounds, and average assists. The aim of this section is to analyze these two datasets and link players’ salaries with their on-court performance, in order to study the relationship between players’ statistical performance and their salaries.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/manba.webp" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>NBA</figcaption>
-</figure>
-</div>
-<section id="project-summary" class="level2">
-<h2 class="anchored" data-anchor-id="project-summary">Project Summary</h2>
-</section>
-<section id="accessing-data" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-data">Accessing data</h2>
-<p>Our raw data can be downloaded here:</p>
-<p><a href="https://rutgers.box.com/s/2d8b2lxy0z238jw5ar5fafu6kysh9o9q">raw data</a></p>
-<p>Our processed data can be downloaded here:</p>
-<p><a href="https://rutgers.box.com/s/yb6srg0fuck95u3ktjayzskzdecpqra5">processed data</a></p>
-<p>NOTE: do not include your data in your git repo - it will likely be too large and cause issues.</p>
-</section>
-<section id="python-scripts-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="python-scripts-notebooks">Python scripts / notebooks</h2>
-<p>The following scripts/notebooks were used produce the summary:</p>
-<ul>
-<li><code>src/script.py</code></li>
-<li><code>notebooks/data_cleaning.ipynb</code></li>
-<li><code>notebooks/data_enrichment.ipynb</code></li>
-<li><code>notebooks/data_analysis.ipynb</code></li>
-</ul>
-<p>[Give a short description of what the notebooks contain, and their location in the git repo]</p>
-</section>
-</section>
-<section id="data_cleaningdata_cleaning.ipynb" class="level1">
-<h1>data_cleaning/data_cleaning.ipynb</h1>
-<p>This notebook focuses on cleaning and preprocessing the raw NBA datasets. Key tasks include handling missing values, converting data types, standardizing formats, and selecting relevant features. It ensures the data is ready for analysis and modeling in subsequent stages.</p>
-</section>
-<section id="visualizationvisual.ipynb" class="level1">
-<h1>visualization/visual.ipynb</h1>
-<p>This notebook provides visual insights into the NBA data through various plots and charts. It explores relationships between player salaries and performance metrics such as points, rebounds, and assists. Visualizations help uncover trends and patterns that support the modeling phase.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>PER BOX PLOT</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/2.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Score distribution plot</figcaption>
-</figure>
-</div>
-</section>
-<section id="modelmodel.ipynb" class="level1">
-<h1>model/Model.ipynb</h1>
-<p>This notebook develops predictive models to analyze or forecast NBA player salaries based on performance and other features. Techniques may include linear regression or machine learning algorithms. It evaluates model performance and interprets the results in context. We used lasso regression, random forest and PCA to choose features and predict the outcome.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image/3.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Model outcome</figcaption>
-</figure>
-</div>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>Provide a <code>requirements.txt</code> file with packages and versions of all python packages to run the analysis.</p>
-</section>
-<section id="guide" class="level2">
-<h2 class="anchored" data-anchor-id="guide">Guide</h2>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
-<p>Your summary should include the following.</p>
-<p>Note: You do not need code in your summary - instead, reference where in your github repo the code is. The priority should be a concise, readable summary. You should include visualizations and conclusions regarding your data analysis.</p>
-<ol type="1">
-<li><p>describe where the data cam from, the format of the data, the nature of the data (e.g., what it contains, how often it is updated, etc). We get the 2 datasets from Kaggle and Github website.The first dataset examines NBA player performance across multiple seasons to determine key factors influencing salary. It includes attributes like points, assists, rebounds, net rating, draft details, and accolades <a href="https://www.kaggle.com/datasets/justinas/nba-players-data">https://www.kaggle.com/datasets/justinas/nba-players-data</a>. The second datasetpresents the Salary of NBA players during the 2019-2024 season <a href="https://github.com/madhurn1/PredictiveNBAContractValuationModel/blob/main/NBA%20Advanced%20Stats(2019%20-%202024).csv">https://github.com/madhurn1/PredictiveNBAContractValuationModel/blob/main/NBA%20Advanced%20Stats(2019%20-%202024).csv</a></p></li>
-<li><p>explain how you retrieved the data e.g.&nbsp;API, webscraping We just download the data on the website</p></li>
-<li><p>explain how you transformed raw data into tidy tabular data, including data cleaning Weloaded NBA player stats and salary data from 2019–2024. We cleaned the data by: Dropping missing values (e.g., in PER, TS%, salary, and position). Standardizing column names (e.g., changing Player to player_name). Selecting important columns like Season, Player, PER, TS%, Salary, and Position. Splitting the data by season for easier processing. Merging player stats with their position data, ensuring no missing positions. At each stage, we saved cleaned datasets to CSV files, preparing tidy, analysis-ready data organized by season.</p></li>
-<li><p>explain any tests you did to check data (e.g.&nbsp;using <code>pytest</code> to verify that no missing values are present in the tidied dataframes, verify that the resulting number of rows is reasonable)</p></li>
-<li><p>explain any data enrichment steps</p></li>
-<li><p>describe and explain meaningful summary statistics</p></li>
-<li><p>present around 4-6 visualizations related to the data, explain trends and conclusions</p></li>
-</ol>
-<p>You should have at least one interactive data widget.</p>
-<p>You can include figures for example from an external notebook: - https://quarto.org/docs/blog/posts/2023-03-17-jupyter-cell-embedding/ - https://quarto.org/docs/authoring/includes.html</p>
-<ol start="8" type="1">
-<li>at the end, display a graph of the git commit history</li>
-</ol>
-<p>For team members of 2: 10 commits. Of 3: 15 commits. Of 4: 20 commits.</p>
-<p>Your commits history elsewhere may be more dirty, but these 10-20 commits need to be clean and can be drawn as a graph.</p>
-<p>Make sure your git graphs include author names, commit messages, date, git tags if any.</p>
-<p>You can generate nice graphs of git commits with many tools. Among others, you could generate git-graphs using the following tools:</p>
-<ul>
-<li>in vscode: https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph</li>
-<li>https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs</li>
-<li>https://www.gitkraken.com/solutions/commit-graph</li>
-</ul>
-</section>
-<section id="data-storage-options" class="level3">
-<h3 class="anchored" data-anchor-id="data-storage-options">Data storage options</h3>
-<p>Some options for data storage:</p>
-<ul>
-<li>Box link (free with Rutgers account)</li>
-<li>Dropbox</li>
-<li>Google Drive</li>
-</ul>
-<p>The following companies have free data storage (up to ~5 GB) for 12 months. Be careful to make sure you’re within the free limits!!!</p>
-<ul>
-<li>AWS S3 https://aws.amazon.com/s3/</li>
-<li>Google Cloud https://cloud.google.com/free</li>
-<li>Microsoft Azure https://azure.microsoft.com/en-us/free/students</li>
-</ul>
+<section id="欢迎来到我的网站" class="level1">
+<h1>欢迎来到我的网站</h1>
+<p>这是一份用 Quarto 写的 <code>.qmd</code> 文件。</p>
+<section id="一个图表示例" class="level2">
+<h2 class="anchored" data-anchor-id="一个图表示例">一个图表示例</h2>
+<p>import matplotlib.pyplot as plt plt.plot([1, 2, 3], [4, 6, 8]) plt.title(“示例图”) plt.show()</p>
 
 
-</section>
 </section>
 </section>
 
@@ -347,7 +239,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Ruiqi-Qian\.github\.io\/NBA\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
